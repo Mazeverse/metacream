@@ -2,26 +2,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Metacream</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { font-family: sans-serif; background: #f0f2f5; text-align: center; padding: 40px; }
+    .container { background: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input, button { margin-top: 15px; padding: 10px; font-size: 16px; }
+    #output { margin-top: 20px; text-align: left; white-space: pre-wrap; background: #f9f9f9; padding: 15px; border-radius: 5px; }
+  </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <img src="logo.png" alt="Metacream Logo" class="logo" />
-      <h1>Metacream</h1>
-      <select id="language" onchange="setLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="kr">한국어</option>
-      </select>
-    </div>
-    <p id="description">Upload an image to view and manage its metadata.</p>
-    <input type="file" id="imageInput" />
+    <h2>Metacream</h2>
+    <p>Upload an image to view and manage its metadata.</p>
+    <input type="file" id="fileInput" accept="image/*">
+    <br>
     <button onclick="removeMetadata()">Remove Metadata</button>
-    <pre id="metaResult"></pre>
+    <div id="output"></div>
   </div>
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+  <script>
+    const output = document.getElementById('output');
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const img = new Image();
+          img.onload = function () {
+            EXIF.getData(img, function () {
+              const allMetaData = EXIF.getAllTags(this);
+              output.textContent = JSON.stringify(allMetaData, null, 2);
+            });
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function removeMetadata() {
+      alert("Metadata removal to be implemented. This demo shows readable metadata only.");
+    }
+  </script>
 </body>
 </html>
