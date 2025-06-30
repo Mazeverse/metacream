@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,21 +8,20 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Metacream Logo" class="logo" />
-    <h1>Metacream</h1>
-    <select id="language" onchange="changeLanguage()">
-      <option value="en">English</option>
-      <option value="ko">한국어</option>
-    </select>
-  </header>
-  <main>
-    <p id="instruction">Upload an image to view and manage its metadata.</p>
-    <input type="file" id="imageUpload" accept="image/*" />
+  <div class="container">
+    <div class="header">
+      <img src="logo.png" alt="Metacream Logo" class="logo" />
+      <h1>Metacream</h1>
+      <select id="language" onchange="setLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="kr">한국어</option>
+      </select>
+    </div>
+    <p id="description">Upload an image to view and manage its metadata.</p>
+    <input type="file" id="imageInput" />
     <button onclick="removeMetadata()">Remove Metadata</button>
-    <pre id="metadataDisplay"></pre>
-    <a id="downloadLink" style="display:none" download="clean_image.jpg">Download Clean Image</a>
-  </main>
+    <pre id="metaResult"></pre>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

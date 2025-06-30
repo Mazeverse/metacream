@@ -1,33 +1,38 @@
+
 body {
   font-family: sans-serif;
-  background: #f2f4f8;
+  background: #f0f2f5;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
-header {
-  background: #d9f0ff;
+.container {
+  text-align: center;
+  padding: 40px;
+}
+.header {
+  background: #cceeff;
   padding: 20px;
-  border-bottom: 1px solid #ccc;
 }
 .logo {
-  height: 50px;
+  width: 50px;
+  vertical-align: middle;
 }
-main {
-  padding: 20px;
+h1 {
+  margin: 10px 0;
 }
 button {
+  margin-top: 10px;
   padding: 10px 20px;
-  background: black;
+  font-weight: bold;
+  background-color: black;
   color: white;
   border: none;
-  cursor: pointer;
-  margin-top: 10px;
+  border-radius: 5px;
 }
 pre {
+  text-align: left;
+  margin-top: 20px;
   background: #fff;
   padding: 10px;
-  border: 1px solid #ccc;
-  margin-top: 20px;
-  text-align: left;
+  border: 1px solid #ddd;
 }
