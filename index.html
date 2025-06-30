@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metacream</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Metacream Logo" class="logo" />
+    <h1>Metacream</h1>
+    <select id="language" onchange="changeLanguage()">
+      <option value="en">English</option>
+      <option value="ko">한국어</option>
+    </select>
+  </header>
+  <main>
+    <p id="instruction">Upload an image to view and manage its metadata.</p>
+    <input type="file" id="imageUpload" accept="image/*" />
+    <button onclick="removeMetadata()">Remove Metadata</button>
+    <pre id="metadataDisplay"></pre>
+    <a id="downloadLink" style="display:none" download="clean_image.jpg">Download Clean Image</a>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

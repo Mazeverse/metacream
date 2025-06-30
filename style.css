@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+  background: #f2f4f8;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+header {
+  background: #d9f0ff;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.logo {
+  height: 50px;
+}
+main {
+  padding: 20px;
+}
+button {
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+pre {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  text-align: left;
+}
